@@ -1,9 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
+plt.ion()
 
 # Start with 2 particles in a circular orbit
-x0 = 0, y0 = 0, vx0 = 0, vy0 = 0.5
-x1 = 1, y1 = 0, vx1 = 0, vy1 = -0.5
+x0 = 0; y0 = 0; vx0 = 0; vy0 = 0.5
+x1 = 1; y1 = 0; vx1 = 0; vy1 = -0.5
 
 # Take G and m equal to 1
 # Give time steps
@@ -33,12 +34,11 @@ for t in np.arange(0, tmax, dt):
 	vx1 = vx1 + dt*fx1
 	vy1 = vy1 + dt*fy1
 
-plt.plot(x0, y0, 'rx')
-plt.plot(x1, y1, 'b*')
-plt.ylim(-1.5,1.5)
-plt.xlim(-1,2)
-
-plt.draw()
-pot = -1.0/r # potential
-kin = 0.5*(vx0**2 + vy0**2 + vx1**2 + vy1**2) # kinetic energy
-print('kin and pot are ', kin, pot, pot + kin)
+	plt.plot(x0, y0, 'rx')
+	plt.plot(x1, y1, 'b*')
+	plt.ylim(-1.5,1.5)
+	plt.xlim(-1,2)
+	plt.pause(0.01)
+	pot = -1.0/r # potential
+	kin = 0.5*(vx0**2 + vy0**2 + vx1**2 + vy1**2) # kinetic energy
+	print('kin and pot are ', kin, pot, pot + kin)
